@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 export default class Idol extends Component {
   render() {
+    const {idol} = this.props;
     return (
       <div className="col-3">
         <div
@@ -13,15 +14,15 @@ export default class Idol extends Component {
         >
           <img
             className="card-img-top"
-            src="./img/idol/idol1.jpg"
+            src= {idol.img}
             width={300}
             height={350}
-            alt="idol"
+            alt={idol.name}
           />
           <div className="card-body">
-            <h4 className="card-title fs-5">Tên: Đào Lê Phương Hoa</h4>
-            <p className="card-text">Tuổi: 23</p>
-            <button className="btn btn-info">0 ❤️</button>
+            <h4 className="card-title fs-5">Tên: {idol.name}</h4>
+            <p className="card-text">Tuổi: {idol.age}</p>
+            <button className="btn btn-info">{idol.like}❤️</button>
           </div>
         </div>
       </div>
