@@ -37,13 +37,34 @@ export default class LikeIdolProvider extends Component {
     //     active: false,
     //   },
     // ],
-    listIdols: listIdols
+    listIdols: listIdols,
+  };
+
+  setActiveAndLike = (id) => {
+    let listIdolsUpdate = this.state.listIdols.map((idol, index) => {
+      if (idol.id === id) {
+        idol.active = true;
+        idol.like += 1;
+      } else {
+        idol.active = false;
+      }
+      return { ...idol };
+    });
+
+    this.setState({
+      listIdols: listIdolsUpdate,
+    });
   };
   render() {
     return (
-     <LikeIdolContext.Provider value={{listIdols: this.state.listIdols}}>
+      <LikeIdolContext.Provider
+        value={{
+          listIdols: this.state.listIdols,
+          setActiveAndLike: this.setActiveAndLike,
+        }}
+      >
         {this.props.children}
-     </LikeIdolContext.Provider>
+      </LikeIdolContext.Provider>
     );
   }
 }

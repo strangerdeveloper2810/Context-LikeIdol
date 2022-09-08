@@ -5,7 +5,7 @@ const listIdols = [
     age: 23,
     img: "./img/idol/idol1.jpg",
     like: 0,
-    active: true,
+    active: false,
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const listIdols = [
     age: 25,
     img: "./img/idol/idol2.jpg",
     like: 0,
-    active: false,
+    active: true,
   },
   {
     id: 3,

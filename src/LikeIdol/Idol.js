@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import LikeIdolContext from "./Context/LikeIdolContext";
 
 export default class Idol extends Component {
   render() {
-    const {idol} = this.props;
+    const { idol } = this.props;
     return (
       <div className="col-3">
         <div
@@ -14,7 +15,7 @@ export default class Idol extends Component {
         >
           <img
             className="card-img-top"
-            src= {idol.img}
+            src={idol.img}
             width={300}
             height={350}
             alt={idol.name}
@@ -22,7 +23,20 @@ export default class Idol extends Component {
           <div className="card-body">
             <h4 className="card-title fs-5">Tên: {idol.name}</h4>
             <p className="card-text">Tuổi: {idol.age}</p>
-            <button className="btn btn-info">{idol.like}❤️</button>
+            <LikeIdolContext.Consumer>
+              {(value) => {
+                return (
+                  <button
+                    className="btn btn-info"
+                    onClick={() => {
+                      value.setActiveAndLike(idol.id);
+                    }}
+                  >
+                    {idol.like}❤️
+                  </button>
+                );
+              }}
+            </LikeIdolContext.Consumer>
           </div>
         </div>
       </div>
